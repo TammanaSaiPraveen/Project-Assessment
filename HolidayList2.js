@@ -22,9 +22,12 @@ function HolidayList2() {
     { month: 'January', date: '15', day: 'Wednesday', occasion: 'Kanuma' },
     { month: 'January', date: '26', day: 'Sunday', occasion: 'Republic Day' },
     { month: 'February', date: '26', day: 'Wednesday', occasion: 'Mahashivarathri' },
-    { month: 'March', date: '30', day: 'Sunday', occasion: 'العمول' },
+    { month: 'March', date: '30', day: 'Sunday', occasion: 'Ugadi' },
     { month: 'March', date: '31', day: 'Monday', occasion: 'Ramadan' }
   ];
+
+  // Function to determine if the day is Saturday or Sunday
+  const isWeekend = (day) => day === 'Saturday' || day === 'Sunday';
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -41,6 +44,7 @@ function HolidayList2() {
       <table className="w-full border-collapse mt-4">
         <thead>
           <tr>
+            <th className="border px-4 py-2 text-left">#</th>
             <th className="border px-4 py-2 text-left">Month</th>
             <th className="border px-4 py-2 text-left">Date</th>
             <th className="border px-4 py-2 text-left">Day</th>
@@ -49,7 +53,11 @@ function HolidayList2() {
         </thead>
         <tbody>
           {holidays.map((holiday, index) => (
-            <tr key={index}>
+            <tr
+              key={index}
+              className={`bg-white ${isWeekend(holiday.day) ? 'text-gray-500' : 'text-black'}`}
+            >
+              <td className="border px-4 py-2">{index + 1}</td>
               <td className="border px-4 py-2">{holiday.month}</td>
               <td className="border px-4 py-2">{holiday.date}</td>
               <td className="border px-4 py-2">{holiday.day}</td>
@@ -71,7 +79,7 @@ function HolidayList2() {
         <div className="container mx-auto">
           <div className="flex items-center">
             <img
-              className="w-6 md:h-30 lg:h-96 md:w-48 lg:w-56"
+              className="w-6 md:h-20 lg:h-96 md:w-48 lg:w-56"
               src={GIRL}
               alt="Footer Logo"
             />
