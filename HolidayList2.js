@@ -26,7 +26,6 @@ function HolidayList2() {
     { month: 'March', date: '31', day: 'Monday', occasion: 'Ramadan' }
   ];
 
-  // Function to determine if the day is Saturday or Sunday
   const isWeekend = (day) => day === 'Saturday' || day === 'Sunday';
 
   return (
@@ -57,11 +56,11 @@ function HolidayList2() {
               key={index}
               className={`bg-white ${isWeekend(holiday.day) ? 'text-gray-500' : 'text-black'}`}
             >
-              <td className="border px-4 py-2">{index + 1}</td>
-              <td className="border px-4 py-2">{holiday.month}</td>
-              <td className="border px-4 py-2">{holiday.date}</td>
-              <td className="border px-4 py-2">{holiday.day}</td>
-              <td className="border px-4 py-2">{holiday.occasion}</td>
+              <td className="border border-gray-300 px-4 py-2">{index + 1}</td>
+              <td className="border  border-gray-300 px-4 py-2">{holiday.month}</td>
+              <td className="border  border-gray-300 px-4 py-2">{holiday.date}</td>
+              <td className="border  border-gray-300 px-4 py-2">{holiday.day}</td>
+              <td className="border  border-gray-300 px-4 py-2">{holiday.occasion}</td>
             </tr>
           ))}
         </tbody>
